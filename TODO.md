@@ -1,5 +1,5 @@
-# TODO List for Adding Block Diagram Sections
+# TODO: Enhance Loading Screen
 
-- [x] Update Activity1.tsx: Import A1.jpg and add Block Diagram section after System Explainer
-- [x] Update Activity2.tsx: Import A2.jpg and add Block Diagram section after System Explainer
-- [x] Update Activity3.tsx: Import A3.jpg and add Block Diagram section after System Explainer
+- [x] Add new CSS animations to index.css (multi-layered spinner, floating elements, text effects, dynamic background)
+- [x] Update App.tsx loading screen JSX with enhanced elements (eco-icons, animated text, layered spinner)
+- [x] Test the loading screen by running the app

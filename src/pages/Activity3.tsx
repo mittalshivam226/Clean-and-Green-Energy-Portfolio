@@ -1,5 +1,7 @@
 import { Home, ArrowLeft, Thermometer, Zap, Droplets, Shield } from 'lucide-react';
+import { useState } from 'react';
 import A3Image from '../../Images/A3.jpg';
+import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
 
@@ -8,8 +10,10 @@ interface Activity3Props {
 }
 
 export default function Activity3({ onNavigate }: Activity3Props) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const specs = [
-    { label: 'High Temp Cycle', value: 'Flash Steam (>180°C)' },
+    { label: 'High Temp Cycle', value: 'Flash Steam >180°C' },
     { label: 'Medium Temp Cycle', value: 'Binary/ORC (120-180°C)' },
     { label: 'Reservoir Type', value: 'Liquid-Dominated' },
     { label: 'Reinjection', value: 'Closed-Loop' },
@@ -68,7 +72,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
               <p className="text-2xl text-red-400 mb-6">Hot-Water Wells</p>
               <div className="max-w-3xl mx-auto">
                 <p className="text-xl text-slate-300 leading-relaxed">
-                  Converts geothermal energy through flash steam for high-temperature brine (&gt;180°C) and binary/ORC
+                  Converts geothermal energy through flash steam for high-temperature brine (less than 180°C) and binary/ORC
                   for moderate temperatures (120-180°C). Features closed-loop reinjection with H₂S/silica control.
                 </p>
               </div>
@@ -103,12 +107,17 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                 <div className="space-y-4">
                   <p>
                     The conversion path is selected based on reservoir temperature to maximize efficiency. High-temperature
-                    brine (&gt;180°C) uses flash steam technology where pressure reduction causes the brine to flash into
+                    brine (less than 180°C) uses flash steam technology where pressure reduction causes the brine to flash into
+                    steam that drives turbines directly.
+                  </p>
+                  <p>
+                    The conversion path is selected based on reservoir temperature to maximize efficiency. High-temperature
+                    brine (less than 180°C) uses flash steam technology where pressure reduction causes the brine to flash into
                     steam that drives turbines directly.
                   </p>
                   <p>
                     For moderate temperatures (120-180°C), a binary or Organic Rankine Cycle (ORC) system transfers heat
-                    to a working fluid with a lower boiling point, enabling efficient power generation from lower-grade
+                    to a secondary working fluid with a lower boiling point, enabling efficient power generation from lower-grade
                     geothermal resources.
                   </p>
                 </div>
@@ -142,7 +151,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                     from 1,000 to 3,000 meters below the surface. Production wells tap into this natural underground
                     reservoir of hot water and steam, heated by Earth's internal heat flux and maintained under high
                     pressure. The reservoir temperature and characteristics determine the optimal conversion technology—
-                    either flash steam for high temperatures (&gt;180°C) or binary/ORC systems for moderate temperatures
+s                     either flash steam for high temperatures (les180°C) or binary/ORC systems for moderate temperatures
                     (120-180°C).
                   </p>
                 </div>
@@ -222,7 +231,12 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                 Block Diagram
               </h2>
               <div className="flex justify-center">
-                <img src={A3Image} alt="Geothermal Power Plant Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                <div
+                  className="cursor-pointer transition-transform duration-300 hover:scale-105"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <img src={A3Image} alt="Geothermal Power Plant Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                </div>
               </div>
             </div>
 
@@ -262,6 +276,13 @@ export default function Activity3({ onNavigate }: Activity3Props) {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageSrc={A3Image}
+        alt="Geothermal Power Plant Block Diagram"
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

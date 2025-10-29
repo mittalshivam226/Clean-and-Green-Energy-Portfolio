@@ -1,5 +1,7 @@
 import { Home, ArrowLeft, ArrowRight, Droplets, Zap, Recycle, Leaf } from 'lucide-react';
+import { useState } from 'react';
 import A1Image from '../../Images/A1.jpg';
+import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
 
@@ -8,6 +10,8 @@ interface Activity1Props {
 }
 
 export default function Activity1({ onNavigate }: Activity1Props) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const specs = [
     { label: 'Process Type', value: 'Mesophilic Anaerobic Digestion' },
     { label: 'Temperature', value: '~35°C' },
@@ -197,7 +201,12 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 Block Diagram
               </h2>
               <div className="flex justify-center">
-                <img src={A1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                <div
+                  className="cursor-pointer transition-transform duration-300 hover:scale-105"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <img src={A1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                </div>
               </div>
             </div>
 
@@ -238,6 +247,13 @@ export default function Activity1({ onNavigate }: Activity1Props) {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageSrc={A1Image}
+        alt="Biogas System Block Diagram"
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

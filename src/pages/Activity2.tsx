@@ -1,5 +1,7 @@
 import { Home, ArrowLeft, ArrowRight, Sun, Wind, Battery, Zap } from 'lucide-react';
+import { useState } from 'react';
 import A2Image from '../../Images/A2.jpg';
+import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
 
@@ -8,6 +10,8 @@ interface Activity2Props {
 }
 
 export default function Activity2({ onNavigate }: Activity2Props) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const specs = [
     { label: 'Architecture', value: 'Common DC Bus' },
     { label: 'Battery Type', value: 'LiFePO4' },
@@ -228,7 +232,12 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                 Block Diagram
               </h2>
               <div className="flex justify-center">
-                <img src={A2Image} alt="Hybrid Solar + Wind System Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                <div
+                  className="cursor-pointer transition-transform duration-300 hover:scale-105"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <img src={A2Image} alt="Hybrid Solar + Wind System Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                </div>
               </div>
             </div>
 
@@ -269,6 +278,13 @@ export default function Activity2({ onNavigate }: Activity2Props) {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageSrc={A2Image}
+        alt="Hybrid Solar + Wind System Block Diagram"
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
