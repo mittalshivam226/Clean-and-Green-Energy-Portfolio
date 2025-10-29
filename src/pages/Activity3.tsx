@@ -1,4 +1,5 @@
 import { Home, ArrowLeft, Thermometer, Zap, Droplets, Shield } from 'lucide-react';
+import A3Image from '../../Images/A3.jpg';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
 
@@ -212,6 +213,16 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                     potentially making geothermal power accessible to a much broader range of locations worldwide.
                   </p>
                 </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 p-12 mb-16 animate-fade-in-up delay-350">
+              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <div className="w-2 h-8 bg-gradient-to-b from-red-500 to-rose-600 rounded-full" />
+                Block Diagram
+              </h2>
+              <div className="flex justify-center">
+                <img src={A3Image} alt="Geothermal Power Plant Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
               </div>
             </div>
 
