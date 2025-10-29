@@ -1,0 +1,117 @@
+import { Leaf, ArrowRight } from 'lucide-react';
+
+type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
+
+interface HomePageProps {
+  onNavigate: (page: Page) => void;
+}
+
+export default function HomePage({ onNavigate }: HomePageProps) {
+  const activities = [
+    {
+      id: 'activity1' as Page,
+      title: 'Biogas System',
+      subtitle: '100-Cattle Dairy Farm',
+      description: 'Converting dairy manure into clean energy through mesophilic anaerobic digestion',
+      color: 'from-emerald-500 to-teal-600',
+      delay: 'delay-100',
+    },
+    {
+      id: 'activity2' as Page,
+      title: 'Hybrid Solar + Wind',
+      subtitle: 'Rural Health Clinic',
+      description: 'Blending solar PV and wind power with battery storage for reliable 24/7 energy',
+      color: 'from-amber-500 to-orange-600',
+      delay: 'delay-200',
+    },
+    {
+      id: 'activity3' as Page,
+      title: 'Geothermal Power',
+      subtitle: 'Hot-Water Wells',
+      description: 'Converting geothermal energy through flash steam and binary ORC systems',
+      color: 'from-red-500 to-rose-600',
+      delay: 'delay-300',
+    },
+  ];
+
+  return (
+    <div className="min-h-screen relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6 py-12">
+        <header className="text-center mb-20 animate-fade-in-down">
+          <div className="flex items-center justify-center mb-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full animate-pulse" />
+              <Leaf className="w-16 h-16 text-emerald-400 relative animate-float" strokeWidth={1.5} />
+            </div>
+          </div>
+          <h1 className="text-6xl font-bold text-white mb-4 tracking-tight">
+            Clean & Green Energy
+          </h1>
+          <p className="text-2xl text-slate-300 font-light">Portfolio By Shivam Mittal</p>
+          <div className="mt-6 h-1 w-24 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto" />
+        </header>
+
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-4xl font-bold text-white mb-4">Explore Sustainable Solutions</h2>
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+              Discover innovative renewable energy systems designed for real-world applications
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {activities.map((activity, index) => (
+              <div
+                key={activity.id}
+                className={`group animate-fade-in-up ${activity.delay}`}
+              >
+                <div className="relative h-full bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden transition-all duration-500 hover:scale-105 hover:border-slate-600 hover:shadow-2xl hover:shadow-emerald-500/20">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+
+                  <div className="relative p-8 h-full flex flex-col">
+                    <div className="flex-1">
+                      <div className={`inline-block px-4 py-1 rounded-full bg-gradient-to-r ${activity.color} bg-opacity-20 text-sm font-semibold text-white mb-4`}>
+                        Activity {index + 1}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+                        {activity.title}
+                      </h3>
+                      <p className="text-emerald-400 text-sm font-medium mb-4">
+                        {activity.subtitle}
+                      </p>
+                      <p className="text-slate-300 leading-relaxed">
+                        {activity.description}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => onNavigate(activity.id)}
+                      className="mt-6 w-full flex items-center justify-center gap-2 px-6 py-3 bg-slate-700/50 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-600 text-white rounded-xl transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/30"
+                    >
+                      <span className="font-semibold">Explore</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <footer className="text-center py-8 animate-fade-in-up delay-500">
+          <div className="inline-block px-6 py-3 bg-slate-800/50 backdrop-blur-sm rounded-full border border-slate-700/50">
+            <p className="text-slate-400">
+              <span className="font-semibold text-emerald-400">Shivam Mittal</span> — Clean and Green Energy Portfolio © 2025
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}
