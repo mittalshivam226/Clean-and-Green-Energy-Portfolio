@@ -53,7 +53,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           <h1 className="text-6xl font-bold text-white mb-4 tracking-tight">
             Clean & Green Energy
           </h1>
-          <p className="text-2xl text-slate-300 font-light">Portfolio By Shivam Mittal</p>
+          <p className="text-2xl text-slate-300 font-light">Portfolio By Shivam Mittal (RA2311003011700)
+            <br/> C. Tech.</p>
           <div className="mt-6 h-1 w-24 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto" />
         </header>
 
