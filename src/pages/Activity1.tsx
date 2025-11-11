@@ -22,9 +22,9 @@ export default function Activity1({ onNavigate }: Activity1Props) {
   ];
 
   const benefits = [
-    { icon: Zap, title: 'Clean Energy', desc: 'Generates electricity and heat from waste' },
-    { icon: Recycle, title: 'Nutrient-Rich Fertilizer', desc: 'Digestate improves soil health' },
-    { icon: Leaf, title: 'Reduced Emissions', desc: 'Lower greenhouse gas emissions' },
+    { icon: Zap, title: 'Clean Energy Production', desc: 'Transforms dairy waste into usable heat and electricity.' },
+    { icon: Recycle, title: 'Sustainable Fertilizer Source', desc: 'Digestate acts as an organic soil conditioner, improving fertility and structure.' },
+    { icon: Leaf, title: 'Reduced Emissions', desc: 'Mitigates methane release and lowers the farm\'s overall greenhouse gas footprint.' },
   ];
 
   return (
@@ -71,8 +71,8 @@ export default function Activity1({ onNavigate }: Activity1Props) {
               <p className="text-2xl text-emerald-400 mb-6">100-Cattle Dairy Farm</p>
               <div className="max-w-3xl mx-auto">
                 <p className="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  Converts dairy manure into clean energy using mesophilic anaerobic digestion at ~35°C with 30-40 days HRT.
-                  Produces biogas for electricity/heat and digestate for soil health.
+                  This biogas system harnesses dairy manure from a 100-cattle farm to produce clean, renewable energy through mesophilic anaerobic digestion operating at approximately 35°C with a hydraulic retention time (HRT) of 30–40 days.
+                  The process converts organic waste into biogas, which can be utilized for electricity and heat generation, and digestate, a nutrient-rich byproduct that enhances soil fertility.
                 </p>
               </div>
             </div>
@@ -100,37 +100,42 @@ export default function Activity1({ onNavigate }: Activity1Props) {
             <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 mb-16 animate-fade-in-up delay-200 dark:bg-gray-800/80 dark:border-gray-600/50">
               <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
-                Why This Architecture?
+                Why This Design Works
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
-                <div className="space-y-4">
-                  <p>
-                    Cattle dung is particularly well-suited for anaerobic digestion due to its high biodegradable organic content, making it an ideal feedstock for biogas production.
-                  </p>
-                  <p>
-                    The system includes a comprehensive gas train with conditioning equipment to remove moisture, hydrogen sulfide, and other impurities, ensuring safe and efficient utilization.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <p>
-                    Multiple utilization paths are available including combined heat and power (CHP) generation, direct burners for heating, or upgrading to bio-CNG for vehicle fuel.
-                  </p>
-                  <p>
-                    Safety features include pressure relief valves, flame arrestors, and gas detection systems to ensure safe operation and protect both personnel and equipment.
-                  </p>
-                </div>
+              <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-4">
+                <p>
+                  Cattle manure is an exceptional feedstock for biogas production due to its high biodegradable organic content and stable composition.
+                </p>
+                <p>
+                  The system incorporates an integrated gas treatment train to eliminate impurities such as moisture, hydrogen sulfide, and siloxanes, ensuring efficient and safe energy utilization.
+                </p>
+                <p>
+                  Multiple utilization pathways enhance versatility, including:
+                </p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>Combined Heat and Power (CHP) units for concurrent electricity and thermal energy.</li>
+                  <li>Direct combustion for process or space heating.</li>
+                  <li>Upgrading to bio-CNG, enabling its use as a clean vehicle fuel.</li>
+                </ul>
+                <p>
+                  Safety and reliability are maintained through:
+                </p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>Pressure relief valves and flame arrestors.</li>
+                  <li>Gas leak detection systems and emergency shutdown mechanisms.</li>
+                </ul>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 mb-16 animate-fade-in-up delay-300 dark:bg-gray-800/80 dark:border-gray-600/50">
               <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
-                System Explainer
+                System Process Explained
               </h2>
               <div className="space-y-10">
                 <div className="group">
                   <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    Source of Energy
+                    1. Energy Source
                   </h3>
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                     A 100-head dairy cattle operation produces approximately 1,000-1,500 kg of manure per day.
@@ -142,7 +147,7 @@ export default function Activity1({ onNavigate }: Activity1Props) {
 
                 <div className="group">
                   <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    Conversion Process
+                    2. Conversion Process
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
@@ -165,7 +170,7 @@ export default function Activity1({ onNavigate }: Activity1Props) {
 
                 <div className="group">
                   <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    Output & Utilization
+                    3. Output & Utilization
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
@@ -182,7 +187,7 @@ export default function Activity1({ onNavigate }: Activity1Props) {
 
                 <div className="group">
                   <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    Real-World Relevance
+                    4. Real-World Relevance
                   </h3>
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                     This biogas system significantly reduces operational expenses by converting waste into valuable

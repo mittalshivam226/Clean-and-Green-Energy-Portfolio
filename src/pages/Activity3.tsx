@@ -72,8 +72,13 @@ export default function Activity3({ onNavigate }: Activity3Props) {
               <p className="text-2xl text-red-400 mb-6">Hot-Water Wells</p>
               <div className="max-w-3xl mx-auto">
                 <p className="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  Converts geothermal energy through flash steam for high-temperature brine (less than 180°C) and binary/ORC
-                  for moderate temperatures (120-180°C). Features closed-loop reinjection with H₂S/silica control.
+                  This geothermal power plant intelligently adapts its conversion cycle to match the temperature and characteristics of the geothermal resource.
+                  For high-temperature brine sources (T {'>'} 180°C), it operates in a flash steam cycle, using separated steam to drive a turbine.
+                  For moderate-temperature reservoirs (120–180°C), it employs a binary Organic Rankine Cycle (ORC), using a low-boiling working fluid to extract heat efficiently.
+
+                  The system's closed-loop reinjection sustains reservoir pressure and chemistry over the long term, while H₂S and silica management prevent corrosion and scaling.
+                  Climate-optimized air-cooled condensers (ACC) or cooling towers ensure effective heat rejection and equipment protection.
+                  At the grid interface, standard step-up transformers, a switchyard, and EMS-integrated protective relays enable stable, reliable power export.
                 </p>
               </div>
             </div>
@@ -142,12 +147,11 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                     Source of Energy
                   </h3>
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
-                    The energy source is a liquid-dominated geothermal reservoir located at depths typically ranging
-                    from 1,000 to 3,000 meters below the surface. Production wells tap into this natural underground
-                    reservoir of hot water and steam, heated by Earth's internal heat flux and maintained under high
-                    pressure. The reservoir temperature and characteristics determine the optimal conversion technology—
-                    either flash steam for high temperatures (less than 180°C) or binary/ORC systems for moderate temperatures
-                    (120-180°C).
+                    Geothermal energy originates from Earth's internal heat, stored in underground reservoirs of hot water and steam.
+                    Production wells access these liquid-dominated reservoirs at depths of 1,000–3,000 meters, where natural geothermal fluids
+                    are maintained under high pressure. The temperature profile of the resource dictates the conversion approach:
+                    flash steam cycles for high-temperature brine (T {'>'} 180°C) and binary/ORC systems for moderate-temperature resources (120–180°C).
+                    This temperature-dependent selection ensures optimal efficiency and resource utilization across varying geothermal conditions.
                   </p>
                 </div>
 
@@ -157,48 +161,27 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
-                      <strong className="text-primary-900 dark:text-primary-100">Flash Steam Path (High Temperature):</strong> Hot brine from
-                      production wells passes through a separator where controlled pressure reduction causes a portion
-                      of the liquid to "flash" into steam. This high-pressure steam is directed to a steam turbine
-                      connected to a generator, producing electricity. The separated liquid and condensed steam are
-                      routed to the reinjection system.
+                      The geothermal power plant employs dual conversion pathways optimized for different temperature ranges. For high-temperature brine (T {'>'} 180°C), the system uses a flash steam cycle where hot brine is depressurized in a separator, causing it to flash into steam that drives a steam turbine connected to a generator. The separated brine and condensed steam are reinjected to maintain reservoir pressure.
                     </p>
                     <p>
-                      <strong className="text-primary-900 dark:text-primary-100">Binary/ORC Path (Moderate Temperature):</strong> For cooler brine,
-                      a heat exchanger transfers thermal energy to a secondary working fluid (such as isopentane or
-                      R-245fa) with a much lower boiling point. This working fluid vaporizes, drives a turbine-generator
-                      set, and then condenses in a cooling system before repeating the cycle. The geothermal brine never
-                      contacts the turbine, remaining in a closed loop.
+                      For moderate-temperature resources (120–180°C), a binary Organic Rankine Cycle (ORC) is utilized. Geothermal brine transfers heat to a secondary working fluid with a lower boiling point (e.g., isopentane or R-245fa) in a heat exchanger. This working fluid vaporizes, expands through a turbine to generate electricity, and then condenses in a cooling system before recirculating. The geothermal fluid remains isolated in a closed loop, preventing turbine contact.
                     </p>
                     <p>
-                      Both paths include gas extraction systems to remove non-condensable gases (primarily CO₂ and H₂S),
-                      silica precipitation control to prevent scaling, and corrosion-resistant materials throughout.
-                      Cooling is achieved through wet cooling towers or air-cooled condensers depending on water
-                      availability and environmental conditions.
+                      Both conversion paths incorporate gas extraction to remove non-condensable gases (CO₂, H₂S), silica control to mitigate scaling, and corrosion-resistant materials. Cooling systems, such as air-cooled condensers or wet cooling towers, are selected based on local water availability and environmental considerations to ensure efficient heat rejection.
                     </p>
                   </div>
                 </div>
 
                 <div className="group">
                   <h3 className="text-2xl font-semibold text-red-400 mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                    Output & Grid Integration
+                    Output / Utilization
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
-                      The power plant produces continuous baseload electricity at the generator voltage (typically 11-15 kV),
-                      which is then stepped up through a main power transformer to transmission voltage levels (69-230 kV)
-                      for grid connection. Key characteristics include:
+                      The geothermal power plant generates continuous baseload electricity, characterized by exceptional reliability and high capacity factors of 90-95%. This stable output complements intermittent renewable sources like solar and wind, providing dispatchable power that can be ramped within operational limits. The generated electricity at 11-15 kV is stepped up to transmission voltages (69-230 kV) for grid integration through standard transformers and switchyard infrastructure.
                     </p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li><strong className="text-primary-900 dark:text-primary-100">Capacity factor:</strong> 90-95%, far exceeding intermittent renewables</li>
-                      <li><strong className="text-primary-900 dark:text-primary-100">Dispatchability:</strong> Provides stable, predictable baseload power</li>
-                      <li><strong className="text-primary-900 dark:text-primary-100">Ramp capability:</strong> Can adjust output within operational limits</li>
-                      <li><strong className="text-primary-900 dark:text-primary-100">Lifetime:</strong> 30-50+ years with proper maintenance</li>
-                    </ul>
                     <p>
-                      The cooled brine, now at 40-80°C, is pumped through reinjection wells back into the geothermal
-                      reservoir at different horizons or locations than the production wells. This maintains reservoir
-                      pressure, disposes of spent fluid responsibly, and enables sustainable long-term operation.
+                      Key performance attributes include predictable baseload supply, minimal variability, and long operational lifetimes of 30-50+ years. The system's design ensures seamless grid compatibility with protective relays and energy management systems (EMS) for stable power export. Cooled geothermal brine (40-80°C) is reinjected into the reservoir via dedicated wells, maintaining pressure and enabling sustainable resource management over decades of operation.
                     </p>
                   </div>
                 </div>
@@ -208,13 +191,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                     Real-World Relevance
                   </h3>
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
-                    Geothermal power plants provide low-carbon, reliable baseload electricity that complements variable
-                    renewable sources like solar and wind. With lifecycle emissions comparable to wind power (typically
-                    15-50 g CO₂-eq/kWh), geothermal offers true 24/7 clean energy without requiring energy storage or
-                    backup power systems. Countries like Iceland, Kenya, New Zealand, and the Philippines derive
-                    significant portions of their electricity from geothermal resources. Modern enhanced geothermal
-                    systems (EGS) are expanding the technology's applicability beyond traditional volcanic regions,
-                    potentially making geothermal power accessible to a much broader range of locations worldwide.
+                    Geothermal power plants deliver low-carbon, reliable baseload electricity that complements intermittent renewables like solar and wind. With lifecycle emissions comparable to wind power (15-50 g CO₂-eq/kWh), geothermal provides continuous 24/7 clean energy without storage needs. Nations such as Iceland, Kenya, New Zealand, and the Philippines harness significant geothermal capacity. Enhanced geothermal systems (EGS) are broadening accessibility beyond volcanic areas, enabling global deployment in diverse geological settings.
                   </p>
                 </div>
               </div>
@@ -223,7 +200,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
             <div className="bg-gradient-to-br from-red-500/10 to-rose-500/10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 dark:border-gray-600/50 p-12 mb-16 animate-fade-in-up delay-350">
               <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-red-500 to-rose-600 rounded-full" />
-                Block Diagram
+                Block Diagram (Concept Overview)
               </h2>
               <div className="flex justify-center">
                 <div

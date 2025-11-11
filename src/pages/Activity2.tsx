@@ -82,8 +82,10 @@ export default function Activity2({ onNavigate }: Activity2Props) {
               <p className="text-2xl text-emerald-400 mb-6">Rural Health Clinic</p>
               <div className="max-w-3xl mx-auto">
                 <p className="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  Blends solar PV and wind power on a common DC bus with LiFePO4 battery storage.
-                  Hybrid inverter provides reliable 24/7 AC power with automatic transfer switch for grid/diesel backup.
+                  This hybrid renewable setup combines solar PV for daytime generation with wind energy during evenings and monsoon periods, both feeding into a shared DC bus.
+                  The design balances power supply throughout the day without oversizing either source.
+                  A LiFePO₄ battery bank ensures round-the-clock autonomy, while a hybrid inverter/charger delivers clean AC power, supports islanding, and enables black-start capability.
+                  An Automatic Transfer Switch (ATS) connects grid or diesel backup only when the battery's state-of-charge (SoC) reaches low thresholds.
                 </p>
               </div>
             </div>
@@ -113,31 +115,16 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
                 Why This Architecture?
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
-                <div className="space-y-4">
-                  <p>
-                    Solar and wind resources are naturally complementary—solar peaks during daytime while wind often
-                    picks up in the evening and overnight, creating a smoother combined power profile throughout the
-                    24-hour cycle.
-                  </p>
-                  <p>
-                    The common DC bus architecture simplifies the system by allowing both renewable sources to charge
-                    a single battery bank, eliminating the need for multiple conversion stages and improving overall
-                    system efficiency.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <p>
-                    Critical loads (medical equipment, refrigeration, lighting) are prioritized through a split AC
-                    distribution board, ensuring essential services remain operational even during low battery
-                    conditions or maintenance.
-                  </p>
-                  <p>
-                    The Automatic Transfer Switch (ATS) provides seamless failover to grid or diesel backup when
-                    renewable generation and battery storage are insufficient, guaranteeing uninterrupted power for
-                    life-critical healthcare operations.
-                  </p>
-                </div>
+              <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-6">
+                <p>
+                  The system leverages complementary resources — solar power during the day and wind energy during evenings or monsoon months — feeding a single DC bus via independent controllers (MPPT for PV, rectifier + dump load for wind).
+                  This synergy smooths energy availability and avoids costly oversizing of individual systems.
+                </p>
+                <p>
+                  The LiFePO₄ battery provides clean, stable nighttime power, while the hybrid inverter maintains reliable AC output, enables island operation, and restarts the system autonomously.
+                  The ATS brings grid or diesel power online only when the battery SoC falls below safe limits.
+                  By separating critical (vaccine cold-chain, lighting, communication) and non-critical loads, the EMS can shift high-demand activities to solar-peak hours and shed less-essential loads during resource shortages — resulting in high uptime, low diesel use, and scalable future growth.
+                </p>
               </div>
             </div>
 
@@ -153,14 +140,10 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
-                      <strong className="text-primary-900 dark:text-primary-100">Solar PV:</strong> Photovoltaic panels convert sunlight directly
-                      into DC electricity. Peak production occurs during midday hours with clear sky conditions,
-                      typically generating the majority of daily energy during a 6-8 hour window.
+                      Solar irradiance provides consistent daytime generation.
                     </p>
                     <p>
-                      <strong className="text-primary-900 dark:text-primary-100">Wind Turbine:</strong> A small-scale wind turbine (typically 5-10 kW
-                      for this application) converts kinetic wind energy into 3-phase AC electricity. Wind patterns often
-                      complement solar generation, with stronger winds during evening and overnight hours.
+                      Wind regimes in the evenings and monsoon season complement solar production, flattening variability across diurnal and seasonal cycles.
                     </p>
                   </div>
                 </div>
@@ -171,19 +154,22 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
-                      Solar panels connect to an MPPT (Maximum Power Point Tracking) charge controller that optimizes
-                      power extraction while regulating battery charging. The MPPT continuously adjusts the electrical
-                      operating point to harvest maximum available power under varying sunlight conditions.
+                      PV arrays → MPPT controller → DC bus
                     </p>
                     <p>
-                      The wind turbine's 3-phase AC output is rectified to DC through a dedicated rectifier with
-                      dump-load regulation for overspeed protection. Both sources feed into a common DC bus (typically
-                      48V or higher) that connects to the LiFePO4 battery bank.
+                      Wind turbines → Rectifier/controller → DC bus
                     </p>
                     <p>
-                      A hybrid inverter converts stored DC power from the battery into clean AC power (230V/400V) for
-                      the health clinic. The inverter includes sophisticated algorithms for power management, ensuring
-                      smooth transitions between renewable sources, battery, and backup power.
+                      DC bus → LiFePO₄ battery (BMS-managed)
+                    </p>
+                    <p>
+                      Hybrid inverter/charger → regulated AC output
+                    </p>
+                    <p>
+                      ATS → controlled grid/diesel fallback
+                    </p>
+                    <p>
+                      EMS → manages SoC thresholds, scheduling, and system alarms
                     </p>
                   </div>
                 </div>
@@ -194,18 +180,16 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                   </h3>
                   <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
-                      The system provides 24/7 AC power through a split distribution board that separates critical
-                      and non-critical loads:
+                      Critical loads (vaccine cold-chain, lighting, communication) receive priority power.
                     </p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li><strong className="text-primary-900 dark:text-primary-100">Critical loads:</strong> Medical equipment, vaccine refrigeration, emergency lighting, and communication systems receive priority power</li>
-                      <li><strong className="text-primary-900 dark:text-primary-100">Non-critical loads:</strong> General lighting, HVAC, and office equipment can be shed during low-battery conditions</li>
-                      <li><strong className="text-primary-900 dark:text-primary-100">Backup integration:</strong> ATS automatically connects grid or diesel generator when renewable sources cannot meet demand</li>
-                    </ul>
                     <p>
-                      An Energy Management System (EMS) monitors all power sources, battery state of charge, and load
-                      demands in real-time, making intelligent decisions to optimize renewable utilization while
-                      maintaining power quality and reliability.
+                      Non-critical loads (HVAC, office equipment) can be shed during low-battery conditions.
+                    </p>
+                    <p>
+                      ATS connects grid or diesel when renewables fall short.
+                    </p>
+                    <p>
+                      EMS optimizes scheduling, load shedding, and backup integration for maximum reliability.
                     </p>
                   </div>
                 </div>
@@ -215,12 +199,10 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                     Real-World Relevance
                   </h3>
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
-                    This hybrid configuration is ideal for rural healthcare facilities where grid power is unreliable
-                    or unavailable. It significantly reduces dependency on expensive diesel fuel while maintaining the
-                    reliability essential for medical operations. The system can provide 2-3 days of autonomy for
-                    critical loads, ensuring continuous operation during extended periods of poor weather. Over its
-                    20-25 year lifespan, the system typically reduces energy costs by 60-80% compared to pure diesel
-                    generation, with minimal maintenance requirements for the renewable components.
+                    Rural healthcare facilities benefit from reduced diesel dependency and high reliability.
+                    Critical loads maintain autonomy for 2-3 days during poor weather.
+                    60-80% cost savings over 20-25 year lifespan vs. pure diesel.
+                    Minimal maintenance on renewable components.
                   </p>
                 </div>
               </div>
@@ -229,9 +211,29 @@ export default function Activity2({ onNavigate }: Activity2Props) {
             <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 dark:border-gray-600/50 p-12 mb-16 animate-fade-in-up delay-350">
               <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
-                Block Diagram
+                Block Diagram (Concept Overview)
               </h2>
-              <div className="flex justify-center">
+              <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-4">
+                <p>
+                  Solar PV connects through MPPT controllers and wind turbines through a rectifier to a common DC bus.
+                </p>
+                <p>
+                  The DC bus charges the LiFePO₄ battery, which is supervised by a Battery Management System (BMS).
+                </p>
+                <p>
+                  A hybrid inverter/charger converts DC to AC for connected loads.
+                </p>
+                <p>
+                  The ATS integrates grid or diesel supply when required.
+                </p>
+                <p>
+                  The AC distribution board (ACDB) separates critical and non-critical circuits.
+                </p>
+                <p>
+                  The EMS continuously manages performance, protection, and alerts.
+                </p>
+              </div>
+              <div className="flex justify-center mt-8">
                 <div
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}

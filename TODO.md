@@ -1,13 +1,9 @@
-# Color Theme Change Plan
+# TODO for Updating Activity3.tsx Text
 
-## Overview
-Change the website's color theme from dark (slate/emerald) to a fresh, nature-inspired light theme with green and blue palette for "Clean & Green Energy".
-
-## Steps
-- [x] Update tailwind.config.js with new custom color palette (light backgrounds, dark green text, vibrant green/blue accents)
-- [x] Update src/App.tsx (loading screen and main background)
-- [x] Update src/pages/HomePage.tsx (header, cards, footer)
-- [x] Update src/pages/Activity1.tsx (navigation, sections, specs)
-- [ ] Update src/pages/Activity2.tsx (similar to Activity1)
-- [ ] Update src/pages/Activity3.tsx (similar to Activity1)
-- [ ] Test the website for visual consistency
+- [x] Update introduction paragraph with new summary text
+- [x] Update "Why This Architecture?" section with new text
+- [x] Update "Source of Energy" subsection in System Explainer
+- [x] Update "Conversion Process" subsection in System Explainer
+- [x] Update "Output & Grid Integration" subsection to "Output / Utilization" with new text
+- [x] Update "Real-World Relevance" subsection in System Explainer
+- [x] Update "Block Diagram" section to "Block Diagram (Concept Overview)" with new text
