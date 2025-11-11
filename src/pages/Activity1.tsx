@@ -1,6 +1,6 @@
 import { Home, ArrowLeft, ArrowRight, Droplets, Zap, Recycle, Leaf } from 'lucide-react';
 import { useState } from 'react';
-import A1Image from '../../Images/A1.png';
+import ACTIVITY1Image from '../../Images/ACTIVITY1.png';
 import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
@@ -210,7 +210,7 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <img src={A1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
+                  <img src={ACTIVITY1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function Activity1({ onNavigate }: Activity1Props) {
 
       <ImageModal
         isOpen={isModalOpen}
-        imageSrc={A1Image}
+        imageSrc={ACTIVITY1Image}
         alt="Biogas System Block Diagram"
         onClose={() => setIsModalOpen(false)}
       />

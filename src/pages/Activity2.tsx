@@ -1,6 +1,6 @@
 import { Home, ArrowLeft, ArrowRight, Sun, Wind, Battery, Zap } from 'lucide-react';
 import { useState } from 'react';
-import A2Image from '../../Images/A2.png';
+import ACTIVITY2Image from '../../Images/ACTIVITY2.png';
 import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
@@ -238,7 +238,7 @@ export default function Activity2({ onNavigate }: Activity2Props) {
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <img src={A2Image} alt="Hybrid Solar + Wind System Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
+                  <img src={ACTIVITY2Image} alt="Hybrid Solar + Wind System Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
                 </div>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function Activity2({ onNavigate }: Activity2Props) {
 
       <ImageModal
         isOpen={isModalOpen}
-        imageSrc={A2Image}
+        imageSrc={ACTIVITY2Image}
         alt="Hybrid Solar + Wind System Block Diagram"
         onClose={() => setIsModalOpen(false)}
       />

@@ -1,6 +1,6 @@
 import { Home, ArrowLeft, Thermometer, Zap, Droplets, Shield } from 'lucide-react';
 import { useState } from 'react';
-import A3Image from '../../Images/A3.png';
+import ACTIVITY3Image from '../../Images/ACTIVITY3.png';
 import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
@@ -207,7 +207,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <img src={A3Image} alt="Geothermal Power Plant Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
+                  <img src={ACTIVITY3Image} alt="Geothermal Power Plant Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
                 </div>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function Activity3({ onNavigate }: Activity3Props) {
 
       <ImageModal
         isOpen={isModalOpen}
-        imageSrc={A3Image}
+        imageSrc={ACTIVITY3Image}
         alt="Geothermal Power Plant Block Diagram"
         onClose={() => setIsModalOpen(false)}
       />
