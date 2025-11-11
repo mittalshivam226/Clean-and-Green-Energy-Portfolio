@@ -1,6 +1,6 @@
 import { Home, ArrowLeft, ArrowRight, Droplets, Zap, Recycle, Leaf } from 'lucide-react';
 import { useState } from 'react';
-import A1Image from '../../Images/A1.jpg';
+import A1Image from '../../Images/A1.png';
 import ImageModal from '../components/ImageModal';
 
 type Page = 'home' | 'activity1' | 'activity2' | 'activity3';
@@ -28,29 +28,29 @@ export default function Activity1({ onNavigate }: Activity1Props) {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden dark:bg-gray-900">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-20 right-10 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse dark:bg-primary-500/5" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-secondary-500/10 rounded-full blur-3xl animate-pulse delay-1000 dark:bg-secondary-500/5" />
       </div>
 
       <div className="relative z-10">
-        <nav className="sticky top-0 backdrop-blur-xl bg-slate-900/80 border-b border-slate-700/50 z-50">
+        <nav className="sticky top-0 backdrop-blur-xl bg-white/80 border-b border-primary-200/50 z-50 dark:bg-gray-800/80 dark:border-gray-600/50">
           <div className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <button
                 onClick={() => onNavigate('home')}
-                className="flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors duration-300 group"
+                className="flex items-center gap-2 text-neutral-700 hover:text-primary-600 transition-colors duration-300 group dark:text-neutral-300 dark:hover:text-primary-400"
               >
                 <Home className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span className="font-semibold">Home</span>
               </button>
 
               <div className="flex items-center gap-4">
-                <span className="text-slate-400">Activity 1 of 3</span>
+                <span className="text-neutral-500 dark:text-neutral-400">Activity 1 of 3</span>
                 <button
                   onClick={() => onNavigate('activity2')}
-                  className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-emerald-600 text-white rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30"
+                  className="flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/30"
                 >
                   <span>Next</span>
                   <ArrowRight className="w-4 h-4" />
@@ -67,10 +67,10 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 <Droplets className="w-5 h-5 text-emerald-400" />
                 <span className="text-emerald-400 font-semibold">Activity 1</span>
               </div>
-              <h1 className="text-5xl font-bold text-white mb-4">Biogas System</h1>
+              <h1 className="text-5xl font-bold text-primary-900 dark:text-primary-100 mb-4">Biogas System</h1>
               <p className="text-2xl text-emerald-400 mb-6">100-Cattle Dairy Farm</p>
               <div className="max-w-3xl mx-auto">
-                <p className="text-xl text-slate-300 leading-relaxed">
+                <p className="text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   Converts dairy manure into clean energy using mesophilic anaerobic digestion at ~35°C with 30-40 days HRT.
                   Produces biogas for electricity/heat and digestate for soil health.
                 </p>
@@ -83,26 +83,26 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                   key={index}
                   className={`animate-fade-in-up delay-${(index + 1) * 100} group`}
                 >
-                  <div className="relative h-full bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8 hover:border-emerald-500/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/20">
+                  <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl border border-primary-200/50 p-8 hover:border-emerald-500/50 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/20">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl" />
                     <div className="relative">
                       <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <benefit.icon className="w-7 h-7 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-                      <p className="text-slate-400">{benefit.desc}</p>
+                      <h3 className="text-xl font-bold text-primary-900 dark:text-primary-100 mb-3">{benefit.title}</h3>
+                      <p className="text-neutral-700 dark:text-neutral-300">{benefit.desc}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 p-12 mb-16 animate-fade-in-up delay-200">
-              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 mb-16 animate-fade-in-up delay-200 dark:bg-gray-800/80 dark:border-gray-600/50">
+              <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
                 Why This Architecture?
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 text-slate-300 text-lg leading-relaxed">
+              <div className="grid md:grid-cols-2 gap-8 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                 <div className="space-y-4">
                   <p>
                     Cattle dung is particularly well-suited for anaerobic digestion due to its high biodegradable organic content, making it an ideal feedstock for biogas production.
@@ -122,17 +122,17 @@ export default function Activity1({ onNavigate }: Activity1Props) {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 p-12 mb-16 animate-fade-in-up delay-300">
-              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 mb-16 animate-fade-in-up delay-300 dark:bg-gray-800/80 dark:border-gray-600/50">
+              <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
                 System Explainer
               </h2>
               <div className="space-y-10">
                 <div className="group">
-                  <h3 className="text-2xl font-semibold text-emerald-400 mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
                     Source of Energy
                   </h3>
-                  <p className="text-slate-300 text-lg leading-relaxed">
+                  <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                     A 100-head dairy cattle operation produces approximately 1,000-1,500 kg of manure per day.
                     This organic waste contains high levels of biodegradable material, primarily consisting of
                     undigested feed, cellulose, and other organic compounds that serve as excellent substrate for
@@ -141,10 +141,10 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 </div>
 
                 <div className="group">
-                  <h3 className="text-2xl font-semibold text-emerald-400 mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
                     Conversion Process
                   </h3>
-                  <div className="text-slate-300 text-lg leading-relaxed space-y-3">
+                  <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
                       The manure is collected and diluted to achieve optimal total solids content (typically 8-12%),
                       then fed continuously or semi-continuously into a mesophilic anaerobic digester maintained at
@@ -164,10 +164,10 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 </div>
 
                 <div className="group">
-                  <h3 className="text-2xl font-semibold text-emerald-400 mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
                     Output & Utilization
                   </h3>
-                  <div className="text-slate-300 text-lg leading-relaxed space-y-3">
+                  <div className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed space-y-3">
                     <p>
                       The system produces 30-52 cubic meters of biogas per day, which can be utilized in multiple ways:
                     </p>
@@ -181,10 +181,10 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 </div>
 
                 <div className="group">
-                  <h3 className="text-2xl font-semibold text-emerald-400 mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-2xl font-semibold text-emerald-600 mb-4 group-hover:translate-x-2 transition-transform duration-300">
                     Real-World Relevance
                   </h3>
-                  <p className="text-slate-300 text-lg leading-relaxed">
+                  <p className="text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                     This biogas system significantly reduces operational expenses by converting waste into valuable
                     energy and fertilizer products. It creates new revenue streams while reducing disposal costs and
                     energy bills. The system is highly scalable, suitable for farms ranging from 50 to thousands of
@@ -195,8 +195,8 @@ export default function Activity1({ onNavigate }: Activity1Props) {
               </div>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 p-12 mb-16 animate-fade-in-up delay-350">
-              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 mb-16 animate-fade-in-up delay-350 dark:bg-gray-800/80 dark:border-gray-600/50">
+              <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-500 to-teal-600 rounded-full" />
                 Block Diagram
               </h2>
@@ -205,13 +205,13 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                   onClick={() => setIsModalOpen(true)}
                 >
-                  <img src={A1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-slate-700/50" />
+                  <img src={A1Image} alt="Biogas System Block Diagram" className="max-w-full h-auto rounded-2xl border border-primary-200/50 dark:border-gray-600/50" />
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-900/30 to-teal-900/30 backdrop-blur-sm rounded-3xl border border-emerald-700/50 p-12 animate-fade-in-up delay-400">
-              <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 bg-white/80 backdrop-blur-sm rounded-3xl border border-primary-200/50 p-12 animate-fade-in-up delay-400 dark:bg-gray-800/80 dark:border-gray-600/50">
+              <h2 className="text-3xl font-bold text-primary-900 dark:text-primary-100 mb-8 flex items-center gap-3">
                 <div className="w-2 h-8 bg-gradient-to-b from-emerald-400 to-teal-500 rounded-full" />
                 Quick Specs
               </h2>
@@ -219,10 +219,10 @@ export default function Activity1({ onNavigate }: Activity1Props) {
                 {specs.map((spec, index) => (
                   <div
                     key={index}
-                    className="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105"
+                    className="bg-white/80 dark:bg-gray-800/80 rounded-xl p-6 border border-primary-200/50 dark:border-gray-600/50 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105"
                   >
-                    <div className="text-sm text-slate-400 mb-2">{spec.label}</div>
-                    <div className="text-xl font-bold text-white">{spec.value}</div>
+                    <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">{spec.label}</div>
+                    <div className="text-xl font-bold text-primary-900 dark:text-primary-100">{spec.value}</div>
                   </div>
                 ))}
               </div>

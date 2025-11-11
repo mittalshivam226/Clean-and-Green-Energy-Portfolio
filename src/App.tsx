@@ -10,6 +10,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const navigateTo = (page: Page) => {
     setIsTransitioning(true);
@@ -29,9 +30,17 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-background-shift flex flex-col items-center justify-center z-50 overflow-hidden">
+      <div className="fixed inset-0 bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 animate-background-shift flex flex-col items-center justify-center z-50 overflow-hidden">
         {/* Floating Eco Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-20 text-4xl animate-eco-float delay-100">🌿</div>
@@ -44,31 +53,31 @@ function App() {
 
         {/* Multi-layered Spinner */}
         <div className="relative mb-8">
-          <div className="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full animate-pulse-glow" />
-          <div className="w-24 h-24 border-4 border-emerald-500/30 border-t-emerald-500 rounded-full animate-multi-spin" />
-          <div className="absolute inset-2 border-2 border-emerald-400/50 border-t-transparent rounded-full animate-multi-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
-          <div className="absolute inset-4 border-2 border-emerald-300/70 border-t-transparent rounded-full animate-multi-spin" style={{ animationDuration: '1s' }} />
-          <div className="absolute inset-6 bg-emerald-500/10 rounded-full animate-pulse" />
+          <div className="absolute inset-0 bg-primary-500/20 blur-2xl rounded-full animate-pulse-glow" />
+          <div className="w-24 h-24 border-4 border-primary-500/30 border-t-primary-500 rounded-full animate-multi-spin" />
+          <div className="absolute inset-2 border-2 border-primary-400/50 border-t-transparent rounded-full animate-multi-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
+          <div className="absolute inset-4 border-2 border-primary-300/70 border-t-transparent rounded-full animate-multi-spin" style={{ animationDuration: '1s' }} />
+          <div className="absolute inset-6 bg-primary-500/10 rounded-full animate-pulse" />
         </div>
 
         {/* Animated Text */}
-        <h1 className="text-4xl font-bold text-emerald-400 mb-4 animate-fade-in-down animate-text-shimmer">
+        <h1 className="text-4xl font-bold text-primary-700 mb-4 animate-fade-in-down animate-text-shimmer">
           Welcome to an Eco-friendly zone
         </h1>
-        <p className="text-xl text-slate-300 animate-fade-in-up delay-300">
+        <p className="text-xl text-neutral-600 animate-fade-in-up delay-300">
           Made by Shivam Mittal
         </p>
 
         {/* Enhanced Progress Dots */}
         <div className="mt-8 flex space-x-3">
-          <div className="w-4 h-4 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-          <div className="w-4 h-4 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
-          <div className="w-4 h-4 bg-emerald-300 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
-          <div className="w-4 h-4 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0.45s' }} />
+          <div className="w-4 h-4 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+          <div className="w-4 h-4 bg-primary-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
+          <div className="w-4 h-4 bg-primary-300 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+          <div className="w-4 h-4 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.45s' }} />
         </div>
 
         {/* Loading Percentage */}
-        <div className="mt-6 text-sm text-slate-400 animate-fade-in delay-1000">
+        <div className="mt-6 text-sm text-neutral-500 animate-fade-in delay-1000">
           Loading... 100%
         </div>
       </div>
@@ -76,21 +85,21 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="relative min-h-screen bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
       <div
         className={`transition-opacity duration-300 ${
           isTransitioning ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        {currentPage === 'home' && <HomePage onNavigate={navigateTo} />}
+        {currentPage === 'home' && <HomePage onNavigate={navigateTo} isDarkMode={isDarkMode} onToggleTheme={() => setIsDarkMode(!isDarkMode)} />}
         {currentPage === 'activity1' && <Activity1 onNavigate={navigateTo} />}
         {currentPage === 'activity2' && <Activity2 onNavigate={navigateTo} />}
         {currentPage === 'activity3' && <Activity3 onNavigate={navigateTo} />}
       </div>
 
       {isTransitioning && (
-        <div className="fixed inset-0 bg-slate-900 z-50 flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+        <div className="fixed inset-0 bg-primary-50 z-50 flex items-center justify-center">
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
         </div>
       )}
     </div>
